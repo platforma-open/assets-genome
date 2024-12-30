@@ -96,13 +96,13 @@ if [[ "$REMOTE_FILES" == "true" ]];then
   # Download and decompress genome DNA fasta file
   GENOME_FILENAME="genome.fa"
   echo "Downloading and decompressing genome for ${SPECIES} ${ASSEMBLY_VERSION}..."
-  wget -O genome.fa.gz ${GENOME_URL}
+  wget -nv -O genome.fa.gz ${GENOME_URL}
   gunzip --force genome.fa.gz
 
   # Download genome annotation GTF file
   GTF_FILENAME="${SPECIES}_${ASSEMBLY_VERSION}_annotations.gtf"
   echo "Downloading and decompressing annotations for ${SPECIES} ${ASSEMBLY_VERSION}..."
-  wget -O ${GTF_FILENAME}.gz ${GTF_URL}
+  wget -nv -O ${GTF_FILENAME}.gz ${GTF_URL}
   gunzip --force ${GTF_FILENAME}.gz
 elif [[ "$LOCAL_FILES" == "true" ]];then
   CURRENT_DIR="${PARENT_SCRIPT_PATH}"

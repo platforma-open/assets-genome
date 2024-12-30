@@ -1,0 +1,29 @@
+{
+    "name": "@platforma-open/milaboratories.genome-assets.danio-rerio",
+    "version": "1.0.0",
+    "description": "Assets for Danio Rerio",
+    "scripts": {
+      "cleanup": "rm -rf ./pkg-*.tgz && rm -rf ./build/ && rm -rf ./dist/",
+      "build": "pl-pkg build",
+      "prebuild": "../build-everything.sh ./genomeFileUrls.json",
+      "prepublishOnly": "pl-pkg publish"
+    },
+    "block-software": {
+      "entrypoints": {
+        "main": {
+          "asset": {
+            "type": "asset",
+            "registry": "platforma-open",
+            "root": "./indexed_genome/Danio_rerio"
+          }
+        }
+      }
+    },
+    "files": [
+      "dist/"
+    ],
+    "license": "UNLICENSED",
+    "devDependencies": {
+      "@platforma-sdk/package-builder": "catalog:"
+    }
+  }

@@ -1,0 +1,9 @@
+{
+    "Drosophila_melanogaster": {
+      "assembly_version": "BDGP6.46",
+      "read_length": 100,
+      "genomeSAindexNbases": 12,
+      "genome_url": "https://ftp.ensembl.org/pub/release-113/fasta/drosophila_melanogaster/dna/Drosophila_melanogaster.BDGP6.46.dna.toplevel.fa.gz",
+      "gtf_url": "https://ftp.ensembl.org/pub/release-113/gtf/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.46.113.gtf.gz"
+    }
+}
