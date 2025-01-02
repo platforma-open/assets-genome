@@ -42,8 +42,8 @@ jobs:
       pre-calculated: true
       pre-calculated-task-list: |
         [
-            { "step": "@platforma-open/milaboratories.genome-assets.test-species" },
-            { "step": "@platforma-open/milaboratories.genome-assets.mus-musculus" }
+            { "step": "@platforma-open/milaboratories.genome-assets.mus-musculus" },
+            { "step": "@platforma-open/milaboratories.genome-assets.test-species" }
         ]
 
       npmrc-config: |
