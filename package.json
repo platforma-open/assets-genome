@@ -2,7 +2,7 @@
     "name": "genome-assets",
     "scripts": {
       "cleanup": "pnpm -r cleanup",
-      "build": "turbo run build --verbosity 10",
+      "build": "turbo run build --verbosity 10 --concurrency=1",
       "test": "turbo run test",
       "changeset": "changeset",
       "version-packages": "changeset version"

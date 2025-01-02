@@ -4,8 +4,8 @@
     "description": "Assets for Mus Musculus",
     "scripts": {
       "cleanup": "rm -rf ./pkg-*.tgz && rm -rf ./build/ && rm -rf ./dist/",
-      "build": "pl-pkg build",
-      "prebuild": "../build-everything.sh ./genomeFileUrls.json",
+      "build": "echo 'Start build' && pl-pkg build",
+      "prebuild": "echo 'Start pre-rebuild' && ../build-everything.sh ./genomeFileUrls.json",
       "prepublishOnly": "pl-pkg publish"
     },
     "block-software": {
@@ -26,4 +26,4 @@
     "devDependencies": {
       "@platforma-sdk/package-builder": "catalog:"
     }
-  }
+}
