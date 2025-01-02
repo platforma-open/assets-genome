@@ -38,7 +38,7 @@ jobs:
       create-tag: 'true'
 
       gha-runner-label: 'ubuntu-2xlarge-amd64'
-      aws-login-duration: '43199'
+      aws-login-duration: 43199
       pre-calculated: true
       pre-calculated-task-list: |
         [
