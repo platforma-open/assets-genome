@@ -43,7 +43,17 @@ jobs:
       pre-calculated-task-list: |
         [
             { "step": "@platforma-open/milaboratories.genome-assets.mus-musculus" },
-            { "step": "@platforma-open/milaboratories.genome-assets.test-species" }
+            { "step": "@platforma-open/milaboratories.genome-assets.test-species" },
+            { "step": "@platforma-open/milaboratories.genome-assets.sus-crofa" },
+            { "step": "@platforma-open/milaboratories.genome-assets.saccharomyces-cerevisiae" },
+            { "step": "@platforma-open/milaboratories.genome-assets.rattus-norvegicus" },
+            { "step": "@platforma-open/milaboratories.genome-assets.homo-sapiens" },
+            { "step": "@platforma-open/milaboratories.genome-assets.gallus-gallus" },
+            { "step": "@platforma-open/milaboratories.genome-assets.drosophila-melanogaster" },
+            { "step": "@platforma-open/milaboratories.genome-assets.danio-rerio" },
+            { "step": "@platforma-open/milaboratories.genome-assets.caenorhabditis-elegans" },
+            { "step": "@platforma-open/milaboratories.genome-assets.bos-taurus" },
+            { "step": "@platforma-open/milaboratories.genome-assets.arabidopsis-thaliana" }
         ]
 
       npmrc-config: |
