@@ -2,13 +2,10 @@
     "$schema": "https://turbo.build/schema.json",
     "globalDependencies": ["tsconfig.json"],
     "tasks": {
-      "prebuild": {
-      "inputs": ["package.json"],
-      "outputs": ["./pkg-*.tgz", "./pkg-*.zip"]
-      },   
       "build": {
+        "env": ["CI"],
         "inputs": ["$TURBO_DEFAULT$"],
-        "outputs": ["./dist/**", "./build/**", "./pkg-*.tgz", "./pkg-*.zip"],
+        "outputs": ["./dist/**"],
         "dependsOn": ["^build"]
       },
       "upload-packages": {
