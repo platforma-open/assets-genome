@@ -53,7 +53,7 @@
     "license": "UNLICENSED",
     "dependencies": {
         "@platforma-open/milaboratories.genome-assets.test-species": "workspace:*",
-        "@platforma-open/milaboratories.genome-assets.sus-crofa": "workspace:*",
+        "@platforma-open/milaboratories.genome-assets.sus-scrofa": "workspace:*",
         "@platforma-open/milaboratories.genome-assets.saccharomyces-cerevisiae": "workspace:*",
         "@platforma-open/milaboratories.genome-assets.rattus-norvegicus": "workspace:*",
         "@platforma-open/milaboratories.genome-assets.mus-musculus": "workspace:*",

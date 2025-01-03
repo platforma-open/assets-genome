@@ -77,9 +77,9 @@ importers:
       '@platforma-open/milaboratories.genome-assets.saccharomyces-cerevisiae':
         specifier: workspace:*
         version: link:../saccharomyces-cerevisiae
-      '@platforma-open/milaboratories.genome-assets.sus-crofa':
+      '@platforma-open/milaboratories.genome-assets.sus-scrofa':
         specifier: workspace:*
-        version: link:../sus-crofa
+        version: link:../sus-scrofa
       '@platforma-open/milaboratories.genome-assets.test-species':
         specifier: workspace:*
         version: link:../test-species
@@ -130,7 +130,7 @@ importers:
         specifier: 'catalog:'
         version: 2.15.0
 
-  sus-crofa:
+  sus-scrofa:
     devDependencies:
       '@platforma-sdk/package-builder':
         specifier: 'catalog:'
