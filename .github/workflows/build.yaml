@@ -44,7 +44,7 @@ jobs:
         [
             { "step": "@platforma-open/milaboratories.genome-assets.mus-musculus" },
             { "step": "@platforma-open/milaboratories.genome-assets.test-species" },
-            { "step": "@platforma-open/milaboratories.genome-assets.sus-crofa" },
+            { "step": "@platforma-open/milaboratories.genome-assets.sus-scrofa" },
             { "step": "@platforma-open/milaboratories.genome-assets.saccharomyces-cerevisiae" },
             { "step": "@platforma-open/milaboratories.genome-assets.rattus-norvegicus" },
             { "step": "@platforma-open/milaboratories.genome-assets.homo-sapiens" },
