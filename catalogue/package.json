@@ -12,8 +12,8 @@
             "test-species": {
                 "reference": "@platforma-open/milaboratories.genome-assets.test-species/dist/tengo/asset/main.as.json"
             },
-            "sus-crofa": {
-                "reference": "@platforma-open/milaboratories.genome-assets.sus-crofa/dist/tengo/asset/main.as.json"
+            "sus-scrofa": {
+                "reference": "@platforma-open/milaboratories.genome-assets.sus-scrofa/dist/tengo/asset/main.as.json"
             },
             "saccharomyces-cerevisiae": {
                 "reference": "@platforma-open/milaboratories.genome-assets.saccharomyces-cerevisiae/dist/tengo/asset/main.as.json"
