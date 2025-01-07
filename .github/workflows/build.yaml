@@ -1,12 +1,13 @@
-name: Build, indexed genome references
+name: Build, Test and Release Assets
 on:
+  merge_group:
   pull_request:
     types: [opened, reopened, synchronize]
     branches:
-      - "main"
+      - 'main'
   push:
     branches:
-      - "main"
+      - 'main'
   workflow_dispatch: {}
 jobs:
   init:
@@ -16,50 +17,68 @@ jobs:
         with:
           version-canonize: false
           branch-versioning: main
-      - uses: milaboratory/github-ci/actions/context@v4
-        id: ctx
-    outputs:
-      is-release: ${{ steps.ctx.outputs.is-release }}
   run:
     needs:
       - init
-    uses: milaboratory/github-ci/.github/workflows/node-simple.yaml@v4-beta
+    uses: milaboratory/github-ci/.github/workflows/node-simple-pnpm.yaml@v4
     with:
-      app-name: SMART-indexed genome assets
-      app-name-slug: "smart-indexed-genome-assets"
+      app-name: 'Assets: Genome'
+      app-name-slug: 'assets-genome'
       notify-telegram: true
-      node-version: "20.x"
-      is-electron-application: "false"
-      always-auth: "true"
-      registry-url: "https://registry.npmjs.org"
-      build-script-name: ${{ needs.init.outputs.is-release == 'true' && 'build-skip' || 'build' }}
-      gha-runner-label: 'dev-assets'
+      node-version: '20.x'
+      build-script-name: 'build'
+      pnpm-recursive-build: false
       test: false
-      publish-to-public: true
-      aws-login-enable: true
+      test-script-name: 'test'
+      pnpm-recursive-tests: false
+      team-id: 'ciplopen'
+
+      publish-to-public: 'true'
+      package-path: 'catalogue'
+      create-tag: 'true'
+
+      gha-runner-label: 'ubuntu-2xlarge-amd64'
       aws-login-duration: 43199
-      gcp-login-enable: true
+      pre-calculated: true
+      pre-calculated-task-list: |
+        [
+            { "step": "@platforma-open/milaboratories.genome-assets.mus-musculus" },
+            { "step": "@platforma-open/milaboratories.genome-assets.test-species" },
+            { "step": "@platforma-open/milaboratories.genome-assets.sus-scrofa" },
+            { "step": "@platforma-open/milaboratories.genome-assets.saccharomyces-cerevisiae" },
+            { "step": "@platforma-open/milaboratories.genome-assets.rattus-norvegicus" },
+            { "step": "@platforma-open/milaboratories.genome-assets.homo-sapiens" },
+            { "step": "@platforma-open/milaboratories.genome-assets.gallus-gallus" },
+            { "step": "@platforma-open/milaboratories.genome-assets.drosophila-melanogaster" },
+            { "step": "@platforma-open/milaboratories.genome-assets.danio-rerio" },
+            { "step": "@platforma-open/milaboratories.genome-assets.caenorhabditis-elegans" },
+            { "step": "@platforma-open/milaboratories.genome-assets.bos-taurus" },
+            { "step": "@platforma-open/milaboratories.genome-assets.arabidopsis-thaliana" }
+        ]
+
       npmrc-config: |
         {
           "registries": {
             "https://registry.npmjs.org/": {
-              "scopes": ["platforma-open"],
+              "scopes": ["milaboratories", "platforma-sdk", "platforma-open"],
               "tokenVar": "NPMJS_TOKEN"
             }
           }
         }
     secrets:
       env: |
-        {
-          "PL_REGISTRY_PLATFORMA_OPEN_UPLOAD_URL": ${{ toJSON(secrets.PL_REGISTRY_PLOPEN_UPLOAD_URL) }},
-          "NPMJS_TOKEN": ${{ toJSON(secrets.NPMJS_TOKEN) }}
-        }
-      AWS_ASSUME_ROLE: ${{ secrets.AWS_CI_IAM_MONOREPO_SIMPLE_ROLE }}
-      AWS_ASSUME_REGION: "eu-central-1"
-      GCP_KMS_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GCP_KMS_WORKLOAD_IDENTITY_PROVIDER }}
-      GCP_KMS_SERVICE_ACCOUNT: ${{ secrets.GCP_KMS_SERVICE_ACCOUNT }}
-      GCP_KMS_LOCATION: ${{ secrets.GCP_KMS_LOCATION }}
-      GCP_KMS_KEYRING: ${{ secrets.GCP_KMS_KEYRING }}
-      GCP_KMS_KEY_NAME: ${{ secrets.GCP_KMS_KEY_NAME }}
+        { "PL_LICENSE": ${{ toJSON(secrets.MI_LICENSE) }},
+          "MI_LICENSE": ${{ toJSON(secrets.MI_LICENSE) }},
+          "NPMJS_TOKEN": ${{ toJSON(secrets.NPMJS_TOKEN) }},
+          "PL_CI_TEST_USER": ${{ toJSON(secrets.PL_CI_TEST_USER) }},
+          "PL_CI_TEST_PASSWORD": ${{ toJSON(secrets.PL_CI_TEST_PASSWORD) }},
+
+          "AWS_CI_IAM_MONOREPO_SIMPLE_ROLE": ${{ toJSON(secrets.AWS_CI_IAM_MONOREPO_SIMPLE_ROLE) }},
+          "AWS_CI_TURBOREPO_S3_BUCKET": ${{ toJSON(secrets.AWS_CI_TURBOREPO_US_S3_BUCKET) }},
+          "PL_REGISTRY_PLATFORMA_OPEN_UPLOAD_URL": ${{ toJSON(secrets.PL_REGISTRY_PLOPEN_UPLOAD_URL) }} }
+
       TELEGRAM_NOTIFICATION_TARGET: ${{ secrets.TG_CHANNEL_MIBUILDS }}
       TELEGRAM_API_TOKEN: ${{ secrets.TG_CI_BOT_TOKEN }}
+
+      GH_ZEN_APP_ID: ${{ secrets.GH_ZEN_APP_ID }}
+      GH_ZEN_APP_PRIVATE_KEY: ${{ secrets.GH_ZEN_APP_PRIVATE_KEY }}

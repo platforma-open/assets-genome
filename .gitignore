@@ -1,5 +1,9 @@
-/downloads/
-/indexed_genome/
-/pkg-*.tgz
-/pkg-*.zip
-/node_modules/
+downloads/
+indexed_genome/
+build/
+dist/
+.turbo
+node_modules/
+pkg-*.tgz
+pkg-*.zip
+package.sw.json

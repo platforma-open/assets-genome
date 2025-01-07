@@ -1,0 +1,9 @@
+{
+    "Bos_taurus": {
+      "assembly_version": "ARS-UCD1.3",
+      "read_length": 150,
+      "genomeSAindexNbases": 14,
+      "genome_url": "https://ftp.ensembl.org/pub/release-113/fasta/bos_taurus/dna/Bos_taurus.ARS-UCD1.3.dna.toplevel.fa.gz",
+      "gtf_url": "https://ftp.ensembl.org/pub/release-113/gtf/bos_taurus/Bos_taurus.ARS-UCD1.3.113.gtf.gz"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "Arabidopsis_thaliana": {
+      "assembly_version": "TAIR10",
+      "read_length": 75,
+      "genomeSAindexNbases": 12,
+      "genome_url": "https://ftp.ebi.ac.uk/ensemblgenomes/pub/release-60/plants/fasta/arabidopsis_thaliana/dna/Arabidopsis_thaliana.TAIR10.dna.toplevel.fa.gz",
+      "gtf_url": "https://ftp.ebi.ac.uk/ensemblgenomes/pub/release-60/plants/gtf/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.60.gtf.gz"
+    }
+}
